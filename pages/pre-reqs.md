@@ -2,10 +2,11 @@ extends: default.liquid
 
 title: Pre-Requisites
 date: 29 Jun 2017 09:21:17 +0100
+path: pre-reqs/
 ---
 
 If you've already installed RLS via rustup, then you can skip this step and
-go straight to setting up your [editor](editors.html).
+go straight to setting up your [editor](/rustlangserver.github.io/editors/).
 
 ### Step 1: Install rustup
 
