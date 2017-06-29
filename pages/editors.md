@@ -1,7 +1,6 @@
 extends: default.liquid
 
 title: Editors
-date: 29 Jun 2017 08:54:58 +0100
 path: editors/
 ---
 
