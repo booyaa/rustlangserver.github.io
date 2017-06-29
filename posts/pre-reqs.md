@@ -5,7 +5,7 @@ date: 29 Jun 2017 09:21:17 +0100
 ---
 
 If you've already installed RLS via rustup, then you can skip this step and
-go straight to setting up your [editor](/posts/editors.html).
+go straight to setting up your [editor](editors.html).
 
 ### Step 1: Install rustup
 
