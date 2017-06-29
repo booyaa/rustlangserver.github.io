@@ -1,0 +1,6 @@
+name: Rust Language Server
+source: "."
+dest: "docs"
+ignore:
+  - .git/*
+  - docs/*

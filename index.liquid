@@ -1,0 +1,14 @@
+extends: default.liquid
+---
+<div >
+  <h2>Blog!</h2>
+  <!--<br />-->
+  <div>
+    {% for post in posts %}
+      <div>
+        {% comment %}<h4>{{post.title}}</h4>{% endcomment %}
+        <h4><a href="{{post.path}}">{{ post.title }}</a></h4>
+      </div>
+    {% endfor %}
+  </div>
+</div>
