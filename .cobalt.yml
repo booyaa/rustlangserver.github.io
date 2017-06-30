@@ -8,3 +8,4 @@ ignore:
   - README.md
   - LICENSE-APACHE
   - LICENSE-MIT
+  - CNAME
