@@ -1,12 +1,9 @@
 extends: default.liquid
-title: vscode
+title: Visual Studio Code
 path: vscode/
 ---
 
 Have you completed the [pre-reqs](/pre-reqs/)?
-Which editor do you have?
-
-## <a name="vscode">vscode</a>
 
 You have two choices of extension: Kalita Alexey's or the reference extension.
 
