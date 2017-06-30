@@ -10,11 +10,11 @@ Which editor do you have?
 - [vscode](#vscode)
 - [neovim](#neovim)
 
-# <a name="vscode">vscode</a>
+## <a name="vscode">vscode</a>
 
 You have two choices of extension: Kalita Alexey's or the reference extension.
 
-## Which one should I choose?
+### Which one should I choose?
 
 Kalita's extension has implemented features that are essential for the IDE, but 
 may also exceed the remit of RLS i.e. built in cargo commands, creating a 
@@ -24,19 +24,19 @@ easier beacuse Kalita has submitted the extension to the vscode market place.
 Where as the reference extension is extremely useful for bug reporting, since 
 this is what the RLS team will be testing your bug report against.
 
-## Kalita's extension
+#### Kalita's extension
 
 1. Trigger your command palette (CTRL/CMD + P) and enter: `ext install vscode-rust`
 2. When prompted reload your editor
 
-# Reference extension
+#### Reference extension
 
 The installation is a bit more involved and will require a recent version of 
 [node](https://nodejs.org/en/).
 
 Run the following commands:
 
-```shell
+```
 git clone https://github.com/rust-lang-nursery/rls-vscode
 cd rls-vscode
 npm install
@@ -50,7 +50,7 @@ green triangle at the top.  This will launch a new instance of VSCode with the
 cannot be set to `"on"`. From there, you can open your Rust projects using
 the RLS.
 
-## Verifying RLS is functioning
+### Verifying RLS is functioning
 
 You'll know it's working when you see this in the status bar at the bottom, with
 a spinning indicator:
@@ -61,7 +61,7 @@ Once you see:
 
 `RLS analysis: done`
 
-# <a name="neovim">neovim</a>
+## <a name="neovim">neovim</a>
 
 neovim, like it's vim uses plugins. The plugin we'll be using is 
 LanguageClient-neovim which is a Language Server Client so this means it
@@ -75,7 +75,7 @@ not, then you should reference to the installation
 
 2 - edit your vimrc and add the following lines: 
 
-```vimrc
+```
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
 " Required for operations modifying multiple buffers like rename.
