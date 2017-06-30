@@ -1,6 +1,6 @@
 extends: default.liquid
-title: Pre-Requisites
-path: pre-reqs/
+title: Installation
+path: install/
 ---
 
 If you've already installed RLS via rustup, then you can skip this step and
