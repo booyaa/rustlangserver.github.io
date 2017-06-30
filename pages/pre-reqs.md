@@ -8,7 +8,7 @@ path: pre-reqs/
 If you've already installed RLS via rustup, then you can skip this step and
 go straight to setting up your [editor](/editors/).
 
-### Step 1: Install rustup
+# Install rustup
 
 You can install [rustup](http://rustup.rs/) on many platforms. This will help us quickly install the
 rls and its dependencies.
@@ -19,7 +19,7 @@ If you already have rustup installed, be sure to run self update to ensure you h
 rustup self update
 ```
 
-### Step 2: Update nightly
+# Update nightly
 
 Update the nightly compiler. You don't have to use it as your default compiler, but it needs to be on your system:
 
@@ -27,7 +27,7 @@ Update the nightly compiler. You don't have to use it as your default compiler, 
 rustup update nightly
 ```
 
-### Step 3: Install the RLS
+# Install the RLS
 
 Once you have rustup installed, run the following commands:
 
