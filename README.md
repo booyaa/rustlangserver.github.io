@@ -2,6 +2,8 @@
 
 http://rls.booyaa.wtf/
 
+For background information see: https://github.com/rust-lang-nursery/rls/issues/261
+
 # To build
 
 - Fork this repo
