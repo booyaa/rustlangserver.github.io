@@ -11,7 +11,7 @@ Which editor do you have?
 - [neovim](#neovim)
 
 # vscode
-<a name="vscode"></a>
+
 You have two choices of extension: Kalita Alexey's or the reference extension.
 
 ## Which one should I choose?
@@ -62,8 +62,6 @@ Once you see:
 `RLS analysis: done`
 
 # neovim
-
-<a name="neovim"></a>
 
 neovim, like it's vim uses plugins. The plugin we'll be using is 
 LanguageClient-neovim which is a Language Server Client so this means it
