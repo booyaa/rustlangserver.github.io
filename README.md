@@ -1,6 +1,6 @@
 # Mockup for the RLS website
 
-http://booyaa.github.io/rustlangserver.github.io/
+http://rls.booyaa.wtf/
 
 # To build
 
@@ -11,4 +11,4 @@ http://booyaa.github.io/rustlangserver.github.io/
 # License 
 
 The Rust Project is dual-licensed under Apache 2.0 and MIT
-terms.
+terms. So's this repo.
