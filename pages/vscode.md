@@ -1,5 +1,6 @@
 extends: default.liquid
 title: vscode
+path: vscode/
 ---
 
 Have you completed the [pre-reqs](/pre-reqs/)?

@@ -1,7 +1,5 @@
 extends: default.liquid
-
 title: Pre-Requisites
-date: 29 Jun 2017 09:21:17 +0100
 path: pre-reqs/
 ---
 
