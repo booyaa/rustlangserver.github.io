@@ -33,7 +33,7 @@
 
       
         <div>
-  <h2>Editors</h2>
+  <h1>Editors</h1>
   <p>
     <p>Have you completed the <a href="/pre-reqs/">pre-reqs</a>?
 Which editor do you have?</p>
@@ -41,21 +41,21 @@ Which editor do you have?</p>
 <li><a href="#vscode">vscode</a></li>
 <li><a href="#neovim">neovim</a></li>
 </ul>
-<h1><a name="vscode">vscode</a></h1>
+<h2><a name="vscode">vscode</a></h2>
 <p>You have two choices of extension: Kalita Alexey's or the reference extension.</p>
-<h2>Which one should I choose?</h2>
+<h3>Which one should I choose?</h3>
 <p>Kalita's extension has implemented features that are essential for the IDE, but
 may also exceed the remit of RLS i.e. built in cargo commands, creating a
 snippet for use in the Rust Playground. The installation process is considerably
 easier beacuse Kalita has submitted the extension to the vscode market place.</p>
 <p>Where as the reference extension is extremely useful for bug reporting, since
 this is what the RLS team will be testing your bug report against.</p>
-<h2>Kalita's extension</h2>
+<h4>Kalita's extension</h4>
 <ol>
 <li>Trigger your command palette (CTRL/CMD + P) and enter: <code>ext install vscode-rust</code></li>
 <li>When prompted reload your editor</li>
 </ol>
-<h1>Reference extension</h1>
+<h4>Reference extension</h4>
 <p>The installation is a bit more involved and will require a recent version of
 <a href="https://nodejs.org/en/">node</a>.</p>
 <p>Run the following commands:</p>
@@ -71,13 +71,13 @@ green triangle at the top.  This will launch a new instance of VSCode with the
 <code>rls-vscode</code> plugin enabled. VSCode setting <code>&quot;window.openFoldersInNewWindow&quot;</code>
 cannot be set to <code>&quot;on&quot;</code>. From there, you can open your Rust projects using
 the RLS.</p>
-<h2>Verifying RLS is functioning</h2>
+<h3>Verifying RLS is functioning</h3>
 <p>You'll know it's working when you see this in the status bar at the bottom, with
 a spinning indicator:</p>
 <p><code>RLS analysis: working /</code></p>
 <p>Once you see:</p>
 <p><code>RLS analysis: done</code></p>
-<h1><a name="neovim">neovim</a></h1>
+<h2><a name="neovim">neovim</a></h2>
 <p>neovim, like it's vim uses plugins. The plugin we'll be using is
 LanguageClient-neovim which is a Language Server Client so this means it
 support any programming languages that implement the LSC protocol.</p>
