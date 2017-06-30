@@ -2,6 +2,7 @@ name: Rust Language Server
 source: "."
 dest: "docs"    
 posts: "pages"    
+drafts: "_drafts"
 ignore:
   - .git/*
   - docs/*

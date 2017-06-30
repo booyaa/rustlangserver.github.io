@@ -1,110 +1,50 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	    <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
-      <title>Editors</title>
-      <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
-      <link rel="stylesheet" href="//writ.cmcenroe.me/1.0.2/writ.min.css">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Editors</title>
+		<link rel="stylesheet" href="/css/bootstrap.css">
+		<link rel="stylesheet" href="/css/style.css">
         
           <title>Editors</title>
         
     </head>
-    <body>
+    <body class="container">
+	    <a href="https://github.com/booyaa/rustlangserveri.github.io">
+      <img class="ribbon" style="display: none" src="/logos/forkme.svg" alt="Fork me on GitHub" width="298" height="298">
+    </a>
 
-    <div>
-    
-      <h1><img class="about-icon" src="/img/rust.svg" />Rust Language Server</h1>
-      <hr />
-      <nav class="menu">
-        <a class="menu-item" href="/rustlangserver.github.io/">Home</a> |
-        <a class="menu-item" href="/rustlangserver.github.io/pre-reqs/">Pre-Requisites</a> |
-        <a class="menu-item" href="/rustlangserver.github.io/editors/">Editors</a>
-        <hr />
-      </nav>
+    <header>
+      <ul class="row menu">
+	<li class="col-xs-12 col-md-2">
+          <a href="/index.html">
+            <img class="img-responsive" src="/logos/rust-logo-blk.svg" onerror="this.src='/logos/rust-logo-256x256-blk.png'" height="128" width="128" alt="Rust logo" />
+          </a>
+	</li>
+	<li class="col-xs-12 col-md-10 menu">
+	  <h2><a href="/pre-reqs/index.html">Pre-requisites</a></h2>
+	  <h2><a href="/editors/index.html">Editors</a></h2>
+	</li>
+      </ul>
+</header> 
+
 
       
         <div>
-  <h2>Editors</h2>
+  <h1>Editors</h1>
   <p>
-    <p>Have you completed the <a href="/rustlangserver.github.io/pre-reqs/">pre-reqs</a>?
+    <p>Have you completed the <a href="/pre-reqs/">pre-reqs</a>?
 Which editor do you have?</p>
 <ul>
-<li><a href="#vscode">vscode</a></li>
-<li><a href="#neovim">neovim</a></li>
+<li><a href="/vscode/index.html">vscode</a></li>
+<li><a href="/neovim/index.html">neovim</a></li>
 </ul>
-<h1>vscode</h1>
-<p><a name="vscode" />
-You have two choices of extension: Kalita Alexey's or the reference extension.</p>
-<h2>Which one should I choose?</h2>
-<p>Kalita's extension has implemented features that are essential for the IDE, but
-may also exceed the remit of RLS i.e. built in cargo commands, creating a
-snippet for use in the Rust Playground. The installation process is considerably
-easier beacuse Kalita has submitted the extension to the vscode market place.</p>
-<p>Where as the reference extension is extremely useful for bug reporting, since
-this is what the RLS team will be testing your bug report against.</p>
-<h2>Kalita's extension</h2>
-<ol>
-<li>Trigger your command palette (CTRL/CMD + P) and enter: <code>ext install vscode-rust</code></li>
-<li>When prompted reload your editor</li>
-</ol>
-<h1>Reference extension</h1>
-<p>The installation is a bit more involved and will require a recent version of
-<a href="https://nodejs.org/en/">node</a>.</p>
-<p>Run the following commands:</p>
-<pre style="background-color:#2b303b">
-<span style="background-color:#2b303b;color:#c0c5ce;">git clone https://github.com/rust-lang-nursery/rls-vscode
-</span><span style="background-color:#2b303b;color:#c0c5ce;">cd rls-vscode
-</span><span style="background-color:#2b303b;color:#c0c5ce;">npm install
-</span><span style="background-color:#2b303b;color:#c0c5ce;">code .
-</span></pre>
-<p>VSCode will open into the <code>rls-vscode</code> project.  From here, click the Debug
-button on the left-hand side (a bug with a line through it). Next, click the
-green triangle at the top.  This will launch a new instance of VSCode with the
-<code>rls-vscode</code> plugin enabled. VSCode setting <code>&quot;window.openFoldersInNewWindow&quot;</code>
-cannot be set to <code>&quot;on&quot;</code>. From there, you can open your Rust projects using
-the RLS.</p>
-<h2>Verifying RLS is functioning</h2>
-<p>You'll know it's working when you see this in the status bar at the bottom, with
-a spinning indicator:</p>
-<p><code>RLS analysis: working /</code></p>
-<p>Once you see:</p>
-<p><code>RLS analysis: done</code></p>
-<h1>neovim</h1>
-<p><a name="neovim" /></p>
-<p>neovim, like it's vim uses plugins. The plugin we'll be using is
-LanguageClient-neovim which is a Language Server Client so this means it
-support any programming languages that implement the LSC protocol.</p>
-<p>You'll need a recent version of python (v3) and we'll assume you're using
-<a href="https://github.com/junegunn/vim-plug">vim-plug</a> plugin manager. If you're
-not, then you should reference to the installation</p>
-<p>1 - install python support for neovim: <code>sudo pip3 install --upgrade neovim</code></p>
-<p>2 - edit your vimrc and add the following lines:</p>
-<pre style="background-color:#2b303b">
-<span style="background-color:#2b303b;color:#c0c5ce;">Plug &#39;autozimu/LanguageClient-neovim&#39;, { &#39;do&#39;: &#39;:UpdateRemotePlugins&#39; }
-</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; Required for operations modifying multiple buffers like rename.
-</span><span style="background-color:#2b303b;color:#c0c5ce;">set hidden
-</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#c0c5ce;">let g:LanguageClient_serverCommands = {
-</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">\ &#39;rust&#39;: [&#39;rustup&#39;, &#39;run&#39;, &#39;nightly&#39;, &#39;rls&#39;],
-</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">\ &#39;javascript&#39;: [&#39;/opt/javascript-typescript-langserver/lib/language-server-stdio.js&#39;],
-</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">\ }
-</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; Automatically start language servers.
-</span><span style="background-color:#2b303b;color:#c0c5ce;">let g:LanguageClient_autoStart = 1
-</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#c0c5ce;">nnoremap &lt;silent&gt; K :call LanguageClient_textDocument_hover()&lt;CR&gt;
-</span><span style="background-color:#2b303b;color:#c0c5ce;">nnoremap &lt;silent&gt; gd :call LanguageClient_textDocument_definition()&lt;CR&gt;
-</span><span style="background-color:#2b303b;color:#c0c5ce;">nnoremap &lt;silent&gt; &lt;F2&gt; :call LanguageClient_textDocument_rename()&lt;CR&gt;
-</span></pre>
-<p>4 - in a shell run the following to install the plugin <code>nvim +PlugInstall +UpdateRemotePlugins +qa</code></p>
 
   </p>
 </div>
 
       
-    </div>
   </body>
 </html>

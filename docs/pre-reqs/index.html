@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <head>
-	    <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width">
-      <title>Pre-Requisites</title>
-      <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
-      <link rel="stylesheet" href="//writ.cmcenroe.me/1.0.2/writ.min.css">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Pre-Requisites</title>
+		<link rel="stylesheet" href="/css/bootstrap.css">
+		<link rel="stylesheet" href="/css/style.css">
         
           <title>Pre-Requisites</title>
         
     </head>
-    <body>
+    <body class="container">
+	    <a href="https://github.com/booyaa/rustlangserveri.github.io">
+      <img class="ribbon" style="display: none" src="/logos/forkme.svg" alt="Fork me on GitHub" width="298" height="298">
+    </a>
 
-    <div>
-    
-      <h1><img class="about-icon" src="/img/rust.svg" />Rust Language Server</h1>
-      <hr />
-      <nav class="menu">
-        <a class="menu-item" href="/rustlangserver.github.io/">Home</a> |
-        <a class="menu-item" href="/rustlangserver.github.io/pre-reqs/">Pre-Requisites</a> |
-        <a class="menu-item" href="/rustlangserver.github.io/editors/">Editors</a>
-        <hr />
-      </nav>
+    <header>
+      <ul class="row menu">
+	<li class="col-xs-12 col-md-2">
+          <a href="/index.html">
+            <img class="img-responsive" src="/logos/rust-logo-blk.svg" onerror="this.src='/logos/rust-logo-256x256-blk.png'" height="128" width="128" alt="Rust logo" />
+          </a>
+	</li>
+	<li class="col-xs-12 col-md-10 menu">
+	  <h2><a href="/pre-reqs/index.html">Pre-requisites</a></h2>
+	  <h2><a href="/editors/index.html">Editors</a></h2>
+	</li>
+      </ul>
+</header> 
+
 
       
         <div>
-  <h2>Pre-Requisites</h2>
+  <h1>Pre-Requisites</h1>
   <p>
     <p>If you've already installed RLS via rustup, then you can skip this step and
-go straight to setting up your <a href="/rustlangserver.github.io/editors/">editor</a>.</p>
-<h3>Step 1: Install rustup</h3>
+go straight to setting up your <a href="/editors/">editor</a>.</p>
+<h2>Install rustup</h2>
 <p>You can install <a href="http://rustup.rs/">rustup</a> on many platforms. This will help us quickly install the
 rls and its dependencies.</p>
 <p>If you already have rustup installed, be sure to run self update to ensure you have the latest rustup:</p>
 <pre style="background-color:#2b303b">
 <span style="background-color:#2b303b;color:#c0c5ce;">rustup self update
 </span></pre>
-<h3>Step 2: Update nightly</h3>
+<h2>Update nightly</h2>
 <p>Update the nightly compiler. You don't have to use it as your default compiler, but it needs to be on your system:</p>
 <pre style="background-color:#2b303b">
 <span style="background-color:#2b303b;color:#c0c5ce;">rustup update nightly
 </span></pre>
-<h3>Step 3: Install the RLS</h3>
+<h2>Install the RLS</h2>
 <p>Once you have rustup installed, run the following commands:</p>
 <pre style="background-color:#2b303b">
 <span style="background-color:#2b303b;color:#c0c5ce;">rustup component add rls --toolchain nightly
@@ -56,6 +63,5 @@ you can follow the <a href="https://github.com/phildawes/racer#configuration">Ra
 </div>
 
       
-    </div>
   </body>
 </html>
