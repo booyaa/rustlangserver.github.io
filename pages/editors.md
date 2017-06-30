@@ -4,7 +4,7 @@ title: Editors
 path: editors/
 ---
 
-Have you completed the [pre-reqs](/rustlangserver.github.io/pre-reqs/)?
+Have you completed the [pre-reqs](/pre-reqs/)?
 Which editor do you have?
 
 - [vscode](#vscode)
