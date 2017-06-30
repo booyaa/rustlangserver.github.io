@@ -10,37 +10,45 @@
         
        	  <title>Rust Language Server WebSite</title>
         
-    </head>
-    <body class="container">
-	    <a href="https://github.com/booyaa/rustlangserver.github.io">
+  </head>
+  <body class="container">
+    <a href="https://github.com/booyaa/rustlangserver.github.io">
       <img class="ribbon" style="display: none" src="/logos/forkme.svg" alt="Fork me on GitHub" width="298" height="298">
     </a>
 
     <header>
       <ul class="row menu">
-	<li class="col-xs-12 col-md-2">
-          <a href="/index.html">
-            <img class="img-responsive" src="/logos/rust-logo-blk.svg" onerror="this.src='/logos/rust-logo-256x256-blk.png'" height="128" width="128" alt="Rust logo" />
-          </a>
-	</li>
-	<li class="col-xs-12 col-md-10 menu">
-	  <h2><a href="/pre-reqs/index.html">Pre-requisites</a></h2>
-	  <h2><a href="/editors/index.html">Editors</a></h2>
-	</li>
+        <li class="col-xs-12 col-md-2">
+                <a href="/index.html">
+                  <img class="img-responsive" src="/logos/rust-logo-blk.svg" onerror="this.src='/logos/rust-logo-256x256-blk.png'" height="128" width="128" alt="Rust logo" />
+                </a>
+        </li>
+        <li class="col-xs-12 col-md-10 menu">          
+          <h2><a href="/index.html">About</a></h2>
+          <h2><a href="/pre-reqs/index.html">Install</a></h2>
+          <h2><a href="/editors/index.html">Editors</a></h2>
+          <h2><a href="/pre-reqs/index.html">Support</a></h2>
+        </li>
       </ul>
-</header> 
+    </header> 
+    
+      <p>The Rust Language Server or RLS provides a server that runs in the
+background, providing IDEs, editors, and other tools with information about
+Rust programs. It supports functionality such as 'goto definition', symbol
+search, reformatting, and code completion, and enables renaming and
+refactorings. The RLS gets its source data from the compiler and from Racer.
+Where possible it uses data from the compiler which is precise and complete.
+Where its not possible, (for example for code completion and where building is
+too slow), it uses Racer.</p>
 
+<p>Since the Rust compiler does not yet support end-to-end incremental
+compilation, we can't offer a perfect experience. However, by optimising our
+use of the compiler and falling back to Racer, we can offer a pretty good
+experience for small to medium sized crates. As the RLS and compiler evolve,
+we'll offer a better experience for larger and larger crates.</p>
 
-      
-        <h2>Which editor do you use?</h2>
-
-<ul>
-	<li><a href="/vscode/index.html">Visual Studio Code</a></li>
-	<li><a href="/neovim/index.html">neovim</a></li>
-	<li>atom</li>
-	<li>gnome builder</li>
-</ul>
-
-      
+<p>The RLS is designed to be frontend-independent. We hope it will be widely
+adopted by different editors and IDEs.</p>
+    
   </body>
 </html>
