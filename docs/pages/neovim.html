@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>neovim</title>
+		<link rel="stylesheet" href="/css/bootstrap.css">
+		<link rel="stylesheet" href="/css/style.css">
+        
+          <title>neovim</title>
+        
+    </head>
+    <body class="container">
+	    <a href="https://github.com/booyaa/rustlangserveri.github.io">
+      <img class="ribbon" style="display: none" src="/logos/forkme.svg" alt="Fork me on GitHub" width="298" height="298">
+    </a>
+
+    <header>
+      <ul class="row menu">
+	<li class="col-xs-12 col-md-2">
+          <a href="/index.html">
+            <img class="img-responsive" src="/logos/rust-logo-blk.svg" onerror="this.src='/logos/rust-logo-256x256-blk.png'" height="128" width="128" alt="Rust logo" />
+          </a>
+	</li>
+	<li class="col-xs-12 col-md-10 menu">
+	  <h2><a href="/pre-reqs/index.html">Pre-requisites</a></h2>
+	  <h2><a href="/editors/index.html">Editors</a></h2>
+	</li>
+      </ul>
+</header> 
+
+
+      
+        <div>
+  <h1>neovim</h1>
+  <p>
+    <p>Have you completed the <a href="/pre-reqs/">pre-reqs</a>?
+Which editor do you have?</p>
+<p>neovim, like vim uses plugins. The plugin we'll be using is
+LanguageClient-neovim which is a Language Server Client so this means it
+support any programming languages that implement the LSC protocol.</p>
+<p>You'll need a recent version of python (v3) and we'll assume you're using
+<a href="https://github.com/junegunn/vim-plug">vim-plug</a> plugin manager. If you're
+not, then you should reference to the installation</p>
+<p>1 - install python support for neovim: <code>sudo pip3 install --upgrade neovim</code></p>
+<p>2 - edit your vimrc and add the following lines:</p>
+<pre style="background-color:#2b303b">
+<span style="background-color:#2b303b;color:#c0c5ce;">Plug &#39;autozimu/LanguageClient-neovim&#39;, { &#39;do&#39;: &#39;:UpdateRemotePlugins&#39; }
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; Required for operations modifying multiple buffers like rename.
+</span><span style="background-color:#2b303b;color:#c0c5ce;">set hidden
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">let g:LanguageClient_serverCommands = {
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">\ &#39;rust&#39;: [&#39;rustup&#39;, &#39;run&#39;, &#39;nightly&#39;, &#39;rls&#39;],
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">\ &#39;javascript&#39;: [&#39;/opt/javascript-typescript-langserver/lib/language-server-stdio.js&#39;],
+</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">\ }
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; Automatically start language servers.
+</span><span style="background-color:#2b303b;color:#c0c5ce;">let g:LanguageClient_autoStart = 1
+</span><span style="background-color:#2b303b;color:#c0c5ce;">
+</span><span style="background-color:#2b303b;color:#c0c5ce;">nnoremap &lt;silent&gt; K :call LanguageClient_textDocument_hover()&lt;CR&gt;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">nnoremap &lt;silent&gt; gd :call LanguageClient_textDocument_definition()&lt;CR&gt;
+</span><span style="background-color:#2b303b;color:#c0c5ce;">nnoremap &lt;silent&gt; &lt;F2&gt; :call LanguageClient_textDocument_rename()&lt;CR&gt;
+</span></pre>
+<p>4 - in a shell run the following to install the plugin <code>nvim +PlugInstall +UpdateRemotePlugins +qa</code></p>
+
+  </p>
+</div>
+
+      
+  </body>
+</html>

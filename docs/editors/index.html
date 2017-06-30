@@ -38,73 +38,9 @@
     <p>Have you completed the <a href="/pre-reqs/">pre-reqs</a>?
 Which editor do you have?</p>
 <ul>
-<li><a href="#vscode">vscode</a></li>
-<li><a href="#neovim">neovim</a></li>
+<li><a href="/vscode/index.html">vscode</a></li>
+<li><a href="/neovim/index.html">neovim</a></li>
 </ul>
-<h2><a name="vscode">vscode</a></h2>
-<p>You have two choices of extension: Kalita Alexey's or the reference extension.</p>
-<h3>Which one should I choose?</h3>
-<p>Kalita's extension has implemented features that are essential for the IDE, but
-may also exceed the remit of RLS i.e. built in cargo commands, creating a
-snippet for use in the Rust Playground. The installation process is considerably
-easier beacuse Kalita has submitted the extension to the vscode market place.</p>
-<p>Where as the reference extension is extremely useful for bug reporting, since
-this is what the RLS team will be testing your bug report against.</p>
-<h4>Kalita's extension</h4>
-<ol>
-<li>Trigger your command palette (CTRL/CMD + P) and enter: <code>ext install vscode-rust</code></li>
-<li>When prompted reload your editor</li>
-</ol>
-<h4>Reference extension</h4>
-<p>The installation is a bit more involved and will require a recent version of
-<a href="https://nodejs.org/en/">node</a>.</p>
-<p>Run the following commands:</p>
-<pre style="background-color:#2b303b">
-<span style="background-color:#2b303b;color:#c0c5ce;">git clone https://github.com/rust-lang-nursery/rls-vscode
-</span><span style="background-color:#2b303b;color:#c0c5ce;">cd rls-vscode
-</span><span style="background-color:#2b303b;color:#c0c5ce;">npm install
-</span><span style="background-color:#2b303b;color:#c0c5ce;">code .
-</span></pre>
-<p>VSCode will open into the <code>rls-vscode</code> project.  From here, click the Debug
-button on the left-hand side (a bug with a line through it). Next, click the
-green triangle at the top.  This will launch a new instance of VSCode with the
-<code>rls-vscode</code> plugin enabled. VSCode setting <code>&quot;window.openFoldersInNewWindow&quot;</code>
-cannot be set to <code>&quot;on&quot;</code>. From there, you can open your Rust projects using
-the RLS.</p>
-<h3>Verifying RLS is functioning</h3>
-<p>You'll know it's working when you see this in the status bar at the bottom, with
-a spinning indicator:</p>
-<p><code>RLS analysis: working /</code></p>
-<p>Once you see:</p>
-<p><code>RLS analysis: done</code></p>
-<h2><a name="neovim">neovim</a></h2>
-<p>neovim, like it's vim uses plugins. The plugin we'll be using is
-LanguageClient-neovim which is a Language Server Client so this means it
-support any programming languages that implement the LSC protocol.</p>
-<p>You'll need a recent version of python (v3) and we'll assume you're using
-<a href="https://github.com/junegunn/vim-plug">vim-plug</a> plugin manager. If you're
-not, then you should reference to the installation</p>
-<p>1 - install python support for neovim: <code>sudo pip3 install --upgrade neovim</code></p>
-<p>2 - edit your vimrc and add the following lines:</p>
-<pre style="background-color:#2b303b">
-<span style="background-color:#2b303b;color:#c0c5ce;">Plug &#39;autozimu/LanguageClient-neovim&#39;, { &#39;do&#39;: &#39;:UpdateRemotePlugins&#39; }
-</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; Required for operations modifying multiple buffers like rename.
-</span><span style="background-color:#2b303b;color:#c0c5ce;">set hidden
-</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#c0c5ce;">let g:LanguageClient_serverCommands = {
-</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">\ &#39;rust&#39;: [&#39;rustup&#39;, &#39;run&#39;, &#39;nightly&#39;, &#39;rls&#39;],
-</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">\ &#39;javascript&#39;: [&#39;/opt/javascript-typescript-langserver/lib/language-server-stdio.js&#39;],
-</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">\ }
-</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot; Automatically start language servers.
-</span><span style="background-color:#2b303b;color:#c0c5ce;">let g:LanguageClient_autoStart = 1
-</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#c0c5ce;">nnoremap &lt;silent&gt; K :call LanguageClient_textDocument_hover()&lt;CR&gt;
-</span><span style="background-color:#2b303b;color:#c0c5ce;">nnoremap &lt;silent&gt; gd :call LanguageClient_textDocument_definition()&lt;CR&gt;
-</span><span style="background-color:#2b303b;color:#c0c5ce;">nnoremap &lt;silent&gt; &lt;F2&gt; :call LanguageClient_textDocument_rename()&lt;CR&gt;
-</span></pre>
-<p>4 - in a shell run the following to install the plugin <code>nvim +PlugInstall +UpdateRemotePlugins +qa</code></p>
 
   </p>
 </div>
