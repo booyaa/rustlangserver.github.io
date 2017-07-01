@@ -1,5 +1,4 @@
 extends: default.liquid
-
 title: Editors
 path: editors/
 ---

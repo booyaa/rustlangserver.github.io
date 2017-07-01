@@ -1,8 +1,7 @@
 extends: default.liquid
-title: Installation
+title: Install
 path: install/
 ---
-
 If you've already installed RLS via rustup, then you can skip this step and
 go straight to setting up your [editor](/editors/).
 
