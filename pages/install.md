@@ -16,12 +16,12 @@ If you already have rustup installed, be sure to run self update to ensure you h
 rustup self update
 ```
 
-## Update nightly
+## Install nightly
 
-Update the nightly compiler. You don't have to use it as your default compiler, but it needs to be on your system:
+Install the nightly compiler. You don't have to use it as your default compiler, but it needs to be on your system:
 
 ```
-rustup update nightly
+rustup install nightly
 ```
 
 ## Install the RLS

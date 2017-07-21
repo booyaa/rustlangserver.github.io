@@ -25,30 +25,109 @@
         </li>
         <li class="col-xs-12 col-md-10 menu">          
           <h2><a href="/index.html">About</a></h2>
-          <h2><a href="/install/index.html">Install</a></h2>
-          <h2><a href="/editors/index.html">Editors</a></h2>
           <h2><a href="/install/index.html">Support</a></h2>
         </li>
       </ul>
     </header> 
     
-      <p>The Rust Language Server or RLS provides a server that runs in the
-background, providing IDEs, editors, and other tools with information about
-Rust programs. It supports functionality such as 'goto definition', symbol
-search, reformatting, and code completion, and enables renaming and
-refactorings. The RLS gets its source data from the compiler and from Racer.
-Where possible it uses data from the compiler which is precise and complete.
-Where its not possible, (for example for code completion and where building is
-too slow), it uses Racer.</p>
+      <h1>Welcome to the Rust Language Server editor setup guide!</h1>
 
-<p>Since the Rust compiler does not yet support end-to-end incremental
-compilation, we can't offer a perfect experience. However, by optimising our
-use of the compiler and falling back to Racer, we can offer a pretty good
-experience for small to medium sized crates. As the RLS and compiler evolve,
-we'll offer a better experience for larger and larger crates.</p>
+<p>We're making this the one stop shop for setting up your favourite code editor
+with the Rust Language Server (or RLS for short).</p>
 
-<p>The RLS is designed to be frontend-independent. We hope it will be widely
-adopted by different editors and IDEs.</p>
+<p>If you haven't already installed RLS, please see <a href="/install/">this</a> guide.</p>
+
+<h1>Which editor do you have?</h1>
+
+<ul>
+    <li><a href="#vscode">Visual Studio Code</a></li>
+    <li><a href="#neovim">neovim</a></li>
+    <li>atom</li>
+    <li>gnome builder</li>
+    <li>emacs</li>
+    <li>eclipse</li>
+</ul>
+
+<a name="vscode"></a>
+
+<h1>Visual Studio Code</1h>
+
+<h2>Installation</h2>
+
+<em>Warning: these instructions are subject change once the extension has been
+submitted to the Visual Studio Marketplace. The current Visual Studio Code
+extension is currently considered a reference extension.</em>
+
+<p>To install the extension you will need a recent version of
+<a href="https://nodejs.org/en/">node</a>.</p>
+
+<p>Run the following commands:</p>
+
+<pre style="background-color:#2b303b;">
+<span style="background-color:#2b303b;color:#c0c5ce;">git clone https://github.com/rust-lang-nursery/rls-vscode</span>
+<span style="background-color:#2b303b;color:#c0c5ce;">cd rls-vscode</span>
+<span style="background-color:#2b303b;color:#c0c5ce;">npm install</span>
+<span style="background-color:#2b303b;color:#c0c5ce;">code .</span>
+</pre>
+
+<p>VSCode will open into the <code>rls-vscode</code> project.  From here, click the Debug
+button on the left-hand side (a bug with a line through it). Next, click the
+green triangle at the top.  This will launch a new instance of VSCode with the
+<code>rls-vscode</code> plugin enabled. VSCode setting <code>"window.openFoldersInNewWindow"</code>
+cannot be set to <code>"on"</code>. From there, you can open your Rust projects using
+the RLS.</p>
+
+<h2>Verifying RLS is functioning</h2>
+
+<p>You'll know it's working when you see this in the status bar at the bottom, with
+a spinning indicator:</p>
+
+<p><code>RLS analysis: working /</code></p>
+
+<p>Once you see (this may take a while if you have a big project):</p>
+
+<p><code>RLS analysis: done</code></p>
+
+<a name="neovim"></a>
+<h1>neovim</h1>
+
+<p>neovim, like vim uses plugins. The plugin we'll be using is 
+LanguageClient-neovim which is a Language Server Client so this means it
+support any programming languages that implement the LSC protocol.</p>
+
+<p>You'll need a recent version of python (v3) and we'll assume you're using 
+vim-plug plugin manager. Otherwise you can find instructions <a href="https://github.com/junegunn/vim-plug">here</a>.</p>
+
+
+<ol>
+
+<li> - install python support for neovim: <code>sudo pip3 install --upgrade neovim</code></li>
+<li> - edit your vimrc and add the following lines: 
+<p>
+<pre style="background-color:#2b303b;">>
+<span style="background-color:#2b303b;color:#c0c5ce;">Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }</span>
+<span style="background-color:#2b303b;color:#c0c5ce;"></span>
+<span style="background-color:#2b303b;color:#c0c5ce;">" Required for operations modifying multiple buffers like rename.</span>
+<span style="background-color:#2b303b;color:#c0c5ce;">set hidden</span>
+<span style="background-color:#2b303b;color:#c0c5ce;"></span>
+<span style="background-color:#2b303b;color:#c0c5ce;">let g:LanguageClient_serverCommands = {</span>
+<span style="background-color:#2b303b;color:#c0c5ce;">    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],</span>
+<span style="background-color:#2b303b;color:#c0c5ce;">    \ }</span>
+<span style="background-color:#2b303b;color:#c0c5ce;"></span>
+<span style="background-color:#2b303b;color:#c0c5ce;">" Automatically start language servers.</span>
+<span style="background-color:#2b303b;color:#c0c5ce;">let g:LanguageClient_autoStart = 1</span>
+<span style="background-color:#2b303b;color:#c0c5ce;"></span>
+<span style="background-color:#2b303b;color:#c0c5ce;">nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR></span>
+<span style="background-color:#2b303b;color:#c0c5ce;">nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR></span>
+<span style="background-color:#2b303b;color:#c0c5ce;">nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR></span>
+</pre>
+</p>
+</li>
+
+<li> - in a shell run the following to install the plugin <code>nvim +PlugInstall +UpdateRemotePlugins +qa</code></li>
+</ol>
+
+
 
 
     
