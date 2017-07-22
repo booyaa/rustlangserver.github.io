@@ -21,43 +21,17 @@ with the Rust Language Server (or RLS for short).</p>
 
 <a name="vscode"></a>
 
-<h1>Visual Studio Code</1h>
+<h1>Visual Studio Code</h1>
 
-<h2>Installation</h2>
+<p>To setup Visual Studio Code to use RLS, you need to install the <a
+href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust">Rust (rls)</a> extension.</p>
 
-<em>Warning: these instructions are subject change once the extension has been
-submitted to the Visual Studio Marketplace. The current Visual Studio Code
-extension is currently considered a reference extension.</em>
 
-<p>To install the extension you will need a recent version of
-<a href="https://nodejs.org/en/">node</a>.</p>
-
-<p>Run the following commands:</p>
+<p>You can do this using the command pallette:</p>
 
 <pre style="background-color:#2b303b;">
-<span style="background-color:#2b303b;color:#c0c5ce;">git clone https://github.com/rust-lang-nursery/rls-vscode</span>
-<span style="background-color:#2b303b;color:#c0c5ce;">cd rls-vscode</span>
-<span style="background-color:#2b303b;color:#c0c5ce;">npm install</span>
-<span style="background-color:#2b303b;color:#c0c5ce;">code .</span>
+<span style="background-color:#2b303b;color:#c0c5ce;">ext install rust</span>
 </pre>
-
-<p>VSCode will open into the <code>rls-vscode</code> project.  From here, click the Debug
-button on the left-hand side (a bug with a line through it). Next, click the
-green triangle at the top.  This will launch a new instance of VSCode with the
-<code>rls-vscode</code> plugin enabled. VSCode setting <code>"window.openFoldersInNewWindow"</code>
-cannot be set to <code>"on"</code>. From there, you can open your Rust projects using
-the RLS.</p>
-
-<h2>Verifying RLS is functioning</h2>
-
-<p>You'll know it's working when you see this in the status bar at the bottom, with
-a spinning indicator:</p>
-
-<p><code>RLS analysis: working /</code></p>
-
-<p>Once you see (this may take a while if you have a big project):</p>
-
-<p><code>RLS analysis: done</code></p>
 
 <a name="neovim"></a>
 <h1>Neovim</h1>
@@ -70,8 +44,8 @@ support any programming languages that implement the LSC protocol.</p>
 vim-plug plugin manager. Otherwise you can find instructions <a href="https://github.com/junegunn/vim-plug">here</a>.</p>
 
 <ol>
-<li> - install python support for neovim: <code>sudo pip3 install --upgrade neovim</code></li>
-<li> - edit your vimrc and add the following lines: 
+<li> install python support for neovim: <code>sudo pip3 install --upgrade neovim</code></li>
+<li> edit your vimrc and add the following lines: 
 <p>
 <pre style="background-color:#2b303b;">>
 <span style="background-color:#2b303b;color:#c0c5ce;">Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }</span>
@@ -92,8 +66,7 @@ vim-plug plugin manager. Otherwise you can find instructions <a href="https://gi
 </pre>
 </p>
 </li>
-
-<li> - in a shell run the following to install the plugin <code>nvim +PlugInstall +UpdateRemotePlugins +qa</code></li>
+<li> in a shell run the following to install the plugin <code>nvim +PlugInstall +UpdateRemotePlugins +qa</code></li>
 </ol>
 
 <a name="atom"></a>
