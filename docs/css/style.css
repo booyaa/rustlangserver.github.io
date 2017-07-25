@@ -779,3 +779,10 @@ h1.rustup {
     margin-right: 1em;
 }
 
+.snippet {
+    background-color:#2b303b;
+}
+
+.snippet > span {
+    color:#c0c5ce;
+}

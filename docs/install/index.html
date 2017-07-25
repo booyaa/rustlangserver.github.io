@@ -39,21 +39,18 @@ go straight to setting up your <a href="/editors/">editor</a>.</p>
 <p>You can install <a href="http://rustup.rs/">rustup</a> on many platforms. This will help us quickly install the
 rls and its dependencies.</p>
 <p>If you already have rustup installed, be sure to run self update to ensure you have the latest rustup:</p>
-<pre style="background-color:#2b303b">
-<span style="background-color:#2b303b;color:#c0c5ce;">rustup self update
-</span></pre>
+<pre><code>rustup self update
+</code></pre>
 <h2>Install nightly</h2>
 <p>Install the nightly compiler. You don't have to use it as your default compiler, but it needs to be on your system:</p>
-<pre style="background-color:#2b303b">
-<span style="background-color:#2b303b;color:#c0c5ce;">rustup install nightly
-</span></pre>
+<pre><code>rustup install nightly
+</code></pre>
 <h2>Install the RLS</h2>
 <p>Once you have rustup installed, run the following commands:</p>
-<pre style="background-color:#2b303b">
-<span style="background-color:#2b303b;color:#c0c5ce;">rustup component add rls --toolchain nightly
-</span><span style="background-color:#2b303b;color:#c0c5ce;">rustup component add rust-analysis --toolchain nightly
-</span><span style="background-color:#2b303b;color:#c0c5ce;">rustup component add rust-src --toolchain nightly
-</span></pre>
+<pre><code>rustup component add rls --toolchain nightly
+rustup component add rust-analysis --toolchain nightly
+rustup component add rust-src --toolchain nightly
+</code></pre>
 <p>If you've never set up Racer before, you'll need to set up your RUST_SRC_PATH variable. To do so,
 you can follow the <a href="https://github.com/phildawes/racer#configuration">Racer configuration steps</a></p>
 

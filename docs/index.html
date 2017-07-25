@@ -42,10 +42,11 @@ with the Rust Language Server (or RLS for short).</p>
 <ul>
     <li><a href="#vscode">Visual Studio Code</a></li>
     <li><a href="#neovim">Neovim</a></li>
-    <li><a href="#atom">Atom</a></li>
-    <li>gnome builder</li>
-    <li>emacs</li>
-    <li>eclipse</li>
+    
+    <li>Atom</li> 
+    <li>gnome builder</li> 
+    <li>emacs</li> 
+    <li>eclipse</li> 
 </ul>
 
 <a name="vscode"></a>
@@ -58,8 +59,8 @@ href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust">Rust (
 
 <p>You can do this using the command pallette:</p>
 
-<pre style="background-color:#2b303b;">
-<span style="background-color:#2b303b;color:#c0c5ce;">ext install rust</span>
+<pre class="snippet">
+<span>ext install rust</span>
 </pre>
 
 <a name="neovim"></a>
@@ -69,44 +70,46 @@ href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust">Rust (
 LanguageClient-neovim which is a Language Server Client so this means it
 support any programming languages that implement the LSC protocol.</p>
 
-<p>You'll need a recent version of python (v3) and we'll assume you're using 
-vim-plug plugin manager. Otherwise you can find instructions <a href="https://github.com/junegunn/vim-plug">here</a>.</p>
+<p>You'll need a recent version of python (v3) and we'll assume you're using
+vim-plug plugin manager. Otherwise you can find instructions in <a
+href="https://github.com/junegunn/vim-plug">vim-plug</a> github repository
+page.</p>
 
-<ol>
-<li> install python support for neovim: <code>sudo pip3 install --upgrade neovim</code></li>
-<li> edit your vimrc and add the following lines: 
 <p>
-<pre style="background-color:#2b303b;">>
-<span style="background-color:#2b303b;color:#c0c5ce;">Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }</span>
-<span style="background-color:#2b303b;color:#c0c5ce;"></span>
-<span style="background-color:#2b303b;color:#c0c5ce;">" Required for operations modifying multiple buffers like rename.</span>
-<span style="background-color:#2b303b;color:#c0c5ce;">set hidden</span>
-<span style="background-color:#2b303b;color:#c0c5ce;"></span>
-<span style="background-color:#2b303b;color:#c0c5ce;">let g:LanguageClient_serverCommands = {</span>
-<span style="background-color:#2b303b;color:#c0c5ce;">    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],</span>
-<span style="background-color:#2b303b;color:#c0c5ce;">    \ }</span>
-<span style="background-color:#2b303b;color:#c0c5ce;"></span>
-<span style="background-color:#2b303b;color:#c0c5ce;">" Automatically start language servers.</span>
-<span style="background-color:#2b303b;color:#c0c5ce;">let g:LanguageClient_autoStart = 1</span>
-<span style="background-color:#2b303b;color:#c0c5ce;"></span>
-<span style="background-color:#2b303b;color:#c0c5ce;">nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR></span>
-<span style="background-color:#2b303b;color:#c0c5ce;">nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR></span>
-<span style="background-color:#2b303b;color:#c0c5ce;">nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR></span>
+Install python support for neovim.
+<pre class="snippet">
+<span>sudo pip3 install --upgrade neovim</span></pre>
+</p>
+
+<p>
+Edit your vimrc and add the following lines
+<pre class="snippet">
+<span>Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+nnoremap  K :call LanguageClient_textDocument_hover()
+nnoremap  gd :call LanguageClient_textDocument_definition()
+nnoremap  :call LanguageClient_textDocument_rename()<span>
 </pre>
 </p>
-</li>
-<li> in a shell run the following to install the plugin <code>nvim +PlugInstall +UpdateRemotePlugins +qa</code></li>
-</ol>
 
-<a name="atom"></a>
-<h1>Atom</h1>
+<p>In a shell, run the following to install the plugin.
+<pre class="snippet"><span>nvim +PlugInstall +UpdateRemotePlugins +qa</span></pre>
+</p>
 
-<p>To setup Atom to use RLS, you need to install the <a
-href="https://atom.io/packages/languageserver-rust">languageserver-rust</a> and
-<a href="https://nuclide.io/">Nuclide</a> packages.</p>
+
 
 <p>
-<!-- bit of white space so last editor doesn't get mudged up with the previous one -->
+<!-- HACK: bit of white space so last editor doesn't get mudged up with the previous one -->
 <br />
 <br />
 <br />

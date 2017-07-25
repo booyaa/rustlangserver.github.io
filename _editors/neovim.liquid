@@ -1,0 +1,42 @@
+<a name="neovim"></a>
+<h1>Neovim</h1>
+
+<p>neovim, like vim uses plugins. The plugin we'll be using is 
+LanguageClient-neovim which is a Language Server Client so this means it
+support any programming languages that implement the LSC protocol.</p>
+
+<p>You'll need a recent version of python (v3) and we'll assume you're using
+vim-plug plugin manager. Otherwise you can find instructions in <a
+href="https://github.com/junegunn/vim-plug">vim-plug</a> github repository
+page.</p>
+
+<p>
+Install python support for neovim.
+<pre class="snippet">
+<span>sudo pip3 install --upgrade neovim</span></pre>
+</p>
+
+<p>
+Edit your vimrc and add the following lines
+<pre class="snippet">
+<span>Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+nnoremap  K :call LanguageClient_textDocument_hover()
+nnoremap  gd :call LanguageClient_textDocument_definition()
+nnoremap  :call LanguageClient_textDocument_rename()<span>
+</pre>
+</p>
+
+<p>In a shell, run the following to install the plugin.
+<pre class="snippet"><span>nvim +PlugInstall +UpdateRemotePlugins +qa</span></pre>
+</p>
