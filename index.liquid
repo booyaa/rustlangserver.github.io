@@ -1,17 +1,24 @@
 extends: default.liquid
 title: Rust Language Server 
 --- 
-<h1>Welcome to the Rust Language Server editor setup guide!</h1>
+<h1>Welcome to the Rust IDE and editor setup guide</h1>
 
-<p>We're making this the one stop shop for setting up your favourite code editor
-with the Rust Language Server (or RLS for short).</p>
+<p>The Rust Language Server (RLS) provides a standard interface for IDEs,
+editors and tools to interact with Rust. For users it provides a hassle free
+way to getting Rust to work with your favourite IDE or editor.</p>
 
-<p>If you haven't already installed RLS, please see <a href="/install/">this</a> guide.</p>
+<p>If you haven't picked an editor, we highly recommend you use [Visual Studio
+Code](http://code.visualstudio.com/) as this has the smoothest user experience
+and is being actively developed by the team behind RLS.</p>
 
-<h1>Which editor do you have?</h1>
+
+{{ include "_editors/vscode.liquid" }}
+
+<h1>Do you have another editor?</h1>
+
+Here are setup instructions for other editors.
 
 <ul>
-    <li><a href="#vscode">Visual Studio Code</a></li>
     <li><a href="#neovim">Neovim</a></li>
     {% comment %} disabled until I can get it working... <li><a href="#atom">Atom</a></li> {% endcomment %}
     <li>Atom</li> 
@@ -20,7 +27,6 @@ with the Rust Language Server (or RLS for short).</p>
     <li>eclipse</li> 
 </ul>
 
-{{ include "_editors/vscode.liquid" }}
 
 {{ include "_editors/neovim.liquid" }}
 
