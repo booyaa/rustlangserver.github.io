@@ -1,5 +1,7 @@
 # Mockup for the RLS website
 
+[![Build Status](https://travis-ci.org/booyaa/rustlangserver.github.io.svg?branch=source)](https://travis-ci.org/booyaa/rustlangserver.github.io)
+
 http://rls.booyaa.wtf/
 
 For background information see: https://github.com/rust-lang-nursery/rls/issues/261
