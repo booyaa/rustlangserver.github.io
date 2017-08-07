@@ -15,6 +15,8 @@ For background information see: https://github.com/rust-lang-nursery/rls/issues/
 - Use `cobalt serve` to test changes render correctly.
 - Raise a PR with your changes
 
+Once merged, travis will take care of deploying changes to website.
+
 # License 
 
 The Rust Project is dual-licensed under Apache 2.0 and MIT
