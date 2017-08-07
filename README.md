@@ -17,6 +17,16 @@ For background information see: https://github.com/rust-lang-nursery/rls/issues/
 
 Once merged, travis will take care of deploying changes to website.
 
+# Misc
+
+Optimise gifs using [gifsicle](http://www.lcdf.org/gifsicle/)
+
+```
+for i in $(ls vscode-*.gif | grep -v opt); do gifsicle -O3 $i --colors 256 -o $i; done
+```
+
+Saved about 160kbytes using the tool!
+
 # License 
 
 The Rust Project is dual-licensed under Apache 2.0 and MIT
