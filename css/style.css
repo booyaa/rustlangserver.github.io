@@ -43,7 +43,7 @@ body {
 	font-family: 'Fira Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin-top: 20px;
 	margin-bottom: 10px;
-	max-width: 820px;
+	max-width: 850px;
 }
 p {
 	margin-top: 1.2em;
@@ -786,3 +786,8 @@ h1.rustup {
 .snippet > span {
     color:#c0c5ce;
 }
+
+/* .screencap {
+   padding-right: 2px; 
+   padding-left: 2px; 
+} */
