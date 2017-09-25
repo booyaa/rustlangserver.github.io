@@ -791,3 +791,7 @@ h1.rustup {
    padding-right: 2px; 
    padding-left: 2px; 
 } */
+
+.animated-screencap img:last-child{display:none}
+.animated-screencap:hover img:first-child{display:none}
+.animated-screencap:hover img:last-child{display:inline-block}
