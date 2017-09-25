@@ -1,0 +1,58 @@
+<a name="vim8"></a>
+<h1>Vim 8</h1>
+
+<p>If you haven't already installed RLS, please see <a href="/install/">this</a> guide.</p>
+
+<p>The installation process described below, including the installation of rustup, rustc, and rls, is codified into a bash script which can be downloaded <a href="/files/install_vim_rls.sh">here</a>.</p>
+
+<h3>For Vim-Plug Users</h3>
+<p> Add these lines within your call plug#begin() and call plug#end() block </p>
+<pre class="snippet">
+<span>Plug 'rust-lang/rust.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+</span></pre>
+
+<p> Then add this block somewhere else in your .vimrc </p>
+<pre class="snippet">
+<span>if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif </span>
+</pre>
+
+<p> Then in vim, run <p>
+<pre class="snippet"><span>:PlugInstall</span></pre>
+
+<h3>Vanilla Vim8 packages approach</h3>
+
+<p>Make a pack directory under .vim/ if it doesn't already exist. See <a href="https://github.com/vim/vim/blob/master/runtime/doc/repeat.txt#L471">this manual</a> for more information on Vim 8 packages. </p>
+<pre class="snippet">
+<span>mkdir -p ~/.vim/pack/bundles/start</span></pre>
+
+<p> Then clone these repos into the directory we just created. 
+<pre class="snippet">
+<span>cd ~/.vim/pack/bundles/start
+git clone --depth 1 https://github.com/prabirshrestha/async.vim
+git clone --depth 1 https://github.com/prabirshrestha/vim-lsp
+git clone --depth 1 https://github.com/prabirshrestha/asyncomplete.vim
+git clone --depth 1 https://github.com/prabirshrestha/asyncomplete-lsp.vim
+git clone --depth 1 https://github.com/rust-lang/rust.vim</span></pre>
+
+<p> Then add this block to your .vimrc </p>
+<pre class="snippet">
+<span>if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif</span></pre>
+
+<p> Also ensure that <strong>filetype plugin indent on</strong> and <strong>syntax enable</strong> are in your .vimrc </p>
+
