@@ -32,7 +32,7 @@ rustup install nightly
 Once you have rustup installed, run the following commands:
 
 ```
-rustup component add rls --toolchain nightly
+rustup component add rls-preview --toolchain nightly
 rustup component add rust-analysis --toolchain nightly
 rustup component add rust-src --toolchain nightly
 ```
