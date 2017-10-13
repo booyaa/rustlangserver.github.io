@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Rust Language Server</title>
+		<link rel="stylesheet" href="/css/bootstrap.css">
+		<link rel="stylesheet" href="/css/style.css">
+        
+       	  <title>Rust Language Server WebSite</title>
+        
+  </head>
+  <body class="container">
+    <a href="https://github.com/booyaa/rustlangserver.github.io">
+      <img class="ribbon" style="display: none" src="/logos/forkme.svg" alt="Fork me on GitHub" width="298" height="298">
+    </a>
+
+    <header>
+      <ul class="row menu">
+        <li class="col-xs-12 col-md-2">
+                <a href="/index.html">
+                  <img class="img-responsive" src="/logos/rust-logo-blk.svg" onerror="this.src='/logos/rust-logo-256x256-blk.png'" height="128" width="128" alt="Rust logo" />
+                </a>
+        </li>
+        <li class="col-xs-12 col-md-10 menu">          
+          <h2><a href="/index.html">About</a></h2>
+          <h2><a href="/install/index.html">Support</a></h2>
+        </li>
+      </ul>
+    </header> 
+    
+      <h1>The Rust IDE and editor setup guide</h1>
+
+<p>The Rust Language Server (RLS) provides a standard interface for IDEs,
+editors and tools to interact with Rust. For users it's a hassle free
+way to get Rust to work with your favourite IDE or editor.</p>
+
+<p>If you haven't already picked an editor, we recommend you use 
+<a href="http://code.visualstudio.com/">Visual Studio Code</a> as this has 
+the smoothest user experience and is being actively developed by the team 
+behind RLS.</p>
+
+<h1>Visual Studio Code</h1>
+
+<p>To setup Visual Studio Code to use RLS:<br />
+
+<ul>
+<li><a href="http://rustup.rs/">rustup</a> should already installed</li>
+<li>install the <a
+href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust">Rust
+(rls)</a> extension.</li>
+</ul>
+</p>
+
+<p>You can do this using the command palette (CMD/CTRL + SHIFT + P)
+<pre class="snippet"><span>ext install rust</span></pre>
+</p>
+
+<p>If you don't have the nightly version of rust or RLS installed the extension will
+offer to install it for you.</p>
+
+<h1>Do you use another editor?</h1>
+
+<p>Here are setup instructions for other editors.</p>
+
+<ul>
+    <li><a href="#vim8">Vim 8</a></li>
+    <li><a href="#neovim">Neovim</a></li>
+    <li>Atom</li> 
+    <li>gnome builder</li> 
+    <li>emacs</li> 
+    <li>eclipse</li>
+</ul>
+
+<a id="vim8"></a>
+<h1>Vim 8</h1>
+
+<p>If you haven't already installed RLS, please see <a href="/install/">this</a> guide.</p>
+
+<p>The installation process described below, including the installation of 
+rustup, rustc, and rls, is codified into a bash script which can be 
+downloaded <a href="/files/install_vim_rls.sh">here</a>.</p>
+
+<h3>For Vim-Plug Users</h3>
+<p> Add these lines within your call plug#begin() and call plug#end() block </p>
+<pre class="snippet">
+<span>Plug 'rust-lang/rust.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+</span></pre>
+
+<p> Then add this block somewhere else in your .vimrc </p>
+<pre class="snippet">
+<span>if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif </span>
+</pre>
+
+<p> Then in vim, run <p>
+<pre class="snippet"><span>:PlugInstall</span></pre>
+
+<h3>Vanilla Vim8 packages approach</h3>
+
+<p>Make a pack directory under .vim/ if it doesn't already exist. See <a href="https://github.com/vim/vim/blob/master/runtime/doc/repeat.txt#L471">this manual</a> for more information on Vim 8 packages. </p>
+<pre class="snippet">
+<span>mkdir -p ~/.vim/pack/bundles/start</span></pre>
+
+<p> Then clone these repos into the directory we just created. 
+<pre class="snippet">
+<span>cd ~/.vim/pack/bundles/start
+git clone --depth 1 https://github.com/prabirshrestha/async.vim
+git clone --depth 1 https://github.com/prabirshrestha/vim-lsp
+git clone --depth 1 https://github.com/prabirshrestha/asyncomplete.vim
+git clone --depth 1 https://github.com/prabirshrestha/asyncomplete-lsp.vim
+git clone --depth 1 https://github.com/rust-lang/rust.vim</span></pre>
+
+<p> Then add this block to your .vimrc </p>
+<pre class="snippet">
+<span>if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif</span></pre>
+
+<p> Also ensure that <strong>filetype plugin indent on</strong> and <strong>syntax enable</strong> are in your .vimrc </p>
+
+
+
+<a id="neovim"></a>
+<h1>Neovim</h1>
+
+<p>If you haven't already installed RLS, please see <a href="/install/">this</a> guide.</p>
+
+<p>neovim, like vim uses plugins. The plugin we'll be using is 
+LanguageClient-neovim which is a Language Server Client so this means it
+support any programming languages that implement the LSC protocol.</p>
+
+<p>You'll need a recent version of python (v3) and we'll assume you're using
+vim-plug plugin manager. Otherwise you can find instructions in <a
+href="https://github.com/junegunn/vim-plug">vim-plug</a> github repository
+page.</p>
+
+<p>
+Install python support for neovim.
+<pre class="snippet">
+<span>sudo pip3 install --upgrade neovim</span></pre>
+</p>
+
+<p>
+Edit your vimrc and add the following lines
+<pre class="snippet">
+<span>
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+call plug#end()
+
+autocmd BufReadPost *.rs setlocal filetype=rust
+
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+" Maps K to hover, gd to goto definition, F2 to rename
+nnoremap &lt;silent&gt; K :call LanguageClient_textDocument_hover()<CR>
+nnoremap &lt;silent&gt; gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap &lt;silent&gt; &lt;F2&gt; :call LanguageClient_textDocument_rename()<CR><span>
+</pre>
+</p>
+
+<p>In a shell, run the following to install the plugin.
+<pre class="snippet"><span>nvim +PlugInstall +UpdateRemotePlugins +qa</span></pre>
+</p>
+
+
+<h1>Functionality</h1>
+
+<p>This collection of animated screenshots demonstrates RLS behaviour in the different IDEs and code editors.</p>
+
+<h2>Visual Studio Code</h2>
+
+<p>RLS is active and analysing your project<br />
+<a class="animated-screencap">
+    <img src="img/vscode-analyse.png" />
+    <img src="img/vscode-analyse.gif" />
+</a>
+
+<div class="row">
+    <div class="col-xs-8 col-sm-6 screencap">
+        Hover</br>
+        <a class="animated-screencap">
+            <img src="img/vscode-hover.png" width="415"/>
+            <img src="img/vscode-hover.gif" width="415"/>
+        </a>
+    </div>
+    <div class="col-xs-8 col-sm-6 screencap">
+        Goto Symbol</br>
+        <a class="animated-screencap">
+            <img src="img/vscode-symbol.png" width="415"/>
+            <img src="img/vscode-symbol.gif" width="415"/>
+        </a>
+    </div>
+</div>
+
+<br />
+
+<div class="row">
+    <div class="col-xs-8 col-sm-6 screencap">
+        Peek</br>
+        <a class="animated-screencap">
+            <img src="img/vscode-peek.png" width="415"/>
+            <img src="img/vscode-peek.gif" width="415"/>
+        </a>
+    </div>
+    <div class="col-xs-8 col-sm-6 screencap">
+        Goto Defintion</br>
+        <a class="animated-screencap">
+            <img src="img/vscode-gotodef.png" width="415"/>
+            <img src="img/vscode-gotodef.gif" width="415"/>
+        </a>
+    </div>
+</div>
+
+<br />
+
+<div class="row">
+    <div class="col-xs-8 col-sm-6 screencap">
+        Format Document<br />
+        <a class="animated-screencap">
+            <img src="img/vscode-format.png" width="415"/>
+            <img src="img/vscode-format.gif" width="415"/>
+        </a>
+    </div>
+    <div class="col-xs-8 col-sm-6 screencap">
+        Code Completion<br />
+        <a class="animated-screencap">
+            <img src="img/vscode-completion.png" width="415"/>
+            <img src="img/vscode-completion.gif" width="415"/>
+        </a>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<ul>
+    <li><a href="#vim8_demo">Vim 8</a></li>
+    <li><a href="#neovim_demo">Neovim</a></li>
+    <li>Atom</li> 
+    <li>gnome builder</li> 
+    <li>emacs</li> 
+    <li>eclipse</li>
+</ul>
+
+<p>
+<!-- HACK: bit of white space so last editor doesn't get mudged up with the previous one -->
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+</p>
+
+
+    
+  </body>
+</html>
