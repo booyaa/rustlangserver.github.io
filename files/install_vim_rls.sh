@@ -40,7 +40,7 @@ function install_rustc() {
 }
 
 function install_rls() {
-    rustup component add rls --toolchain nightly
+    rustup component add rls-preview --toolchain nightly
     rustup component add rust-analysis --toolchain nightly
     rustup component add rust-src --toolchain nightly
 }
